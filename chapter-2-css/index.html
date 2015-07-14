@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Learning CSS</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<style type="text/css">
+body {
+    font-family: 'open sans', 'helvetica neue', helvetica, arial, sans-serif;
+}
+.large {
+    font-size: 200%;
+}
+
+#green {
+    color: green;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+div.blue-box {
+    padding: 10px;
+    background-color: #004bf0;
+    width: 200px;
+}
+
+div.green-box {
+    padding: 10px;
+    background-color: #004000;
+    width: 300px;
+}
+</style>
+
+<body>
+    <div class="blue-box">
+        <p class="large">This is some large text.</p>
+    </div>
+
+    <div class="green-box">
+        <p id="green" class="large">This is some more large green text.</p>
+    </div>
+
+    <p>The third <span class="underline large bold">word</span> in this paragraph is
+    underlined, large, and bold</p>
+</body>
+</html>
