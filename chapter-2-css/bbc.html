@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Julian's BBC</title>
+</head>
+<style type="text/css">
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 48px;
+    font-weight: normal;
+    color: white;
+}
+
+h1 small {
+    font-size: 24px;
+}
+
+h2 {
+    color: #009;
+    font-size: 28px;
+}
+
+p {
+    color: black;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+div#top-bar {
+    height: 36px;
+    background-color: #7a0000;
+    overflow: hidden;
+}
+
+div#header-bar {
+    clear: both;
+    height: 100px;
+    background-color: #960000;
+    overflow: hidden;
+}
+
+div.container {
+    width: 920px;
+    margin: 0 auto;
+}
+
+div.text-block {
+    float: left;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: white;
+    color: #7a3000;
+    padding: 3px 3px 0 3px;
+    margin: 5px 3px 0 0;
+}
+
+div.white-text {
+    float: left;
+    color: white;
+    font-size: 12px;
+    line-height: 36px;
+    margin-left: 10px;
+    padding-left: 5px;
+    width: 4.5em;
+    border-left: 1px solid #960000;
+}
+
+div.form-holder {
+    float: left;
+    font-size: 16px;
+    line-height: 36px;
+    margin-left: 10px;
+    width: 12em;
+}
+
+ul.nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+
+ul.nav li {
+    display: inline;
+    float: left;
+    padding: 6px;
+    font-size: 12px;
+}
+
+ul.nav li.active {
+    background: white;
+    color: black;
+}
+
+section.left {
+    float: left;
+    width: 60%;
+    overflow: hidden;
+}
+
+section.left img {
+    width: 40%;
+    float: left;
+    margin-right: 10px;
+}
+
+section.right {
+    float: left;
+    width: 35%;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+h2.header {
+    background-color: #eee;
+    padding: 5px;
+}
+
+</style>
+<body>
+    <div id="top-bar">
+        <div class="container">
+            <div class="text-block">B</div>
+            <div class="text-block">B</div>
+            <div class="text-block">C</div>
+
+            <div class="white-text">&boxbox; Sign in</div>
+
+            <div class="white-text">&nbsp;</div>
+
+            <div class="white-text">News</div>
+            <div class="white-text">Sport</div>
+            <div class="white-text">Weather</div>
+            <div class="white-text">iPlayer</div>
+            <div class="white-text">TV</div>
+            <div class="white-text">Radio</div>
+            <div class="white-text">More&hellip;</div>
+            <div class="form-holder">
+                <form>
+                    <input type="search" placeholder="Search" />
+                    <input type="submit" value="&cir;" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="header-bar">
+        <div class="container">
+            <h1>NEWS <small>UK</small></h1>
+
+            <ul class="nav">
+                <li>Home</li>
+                <li>World</li>
+                <li class="active">UK</li>
+                <li>England</li>
+                <li>N. Ireland</li>
+                <li>Scotland</li>
+                <li>Wales</li>
+                <li>Business</li>
+                <li>Politics</li>
+                <li>Education</li>
+                <li>Sci/Environment</li>
+                <li>Technology</li>
+                <li>Entertainment &amp; Arts</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <p>16 July 2015 Last Updated at 09:51</p>
+        <section class="left">
+            <h2>World War II Bomber Found on Moon</h2>
+            <img src="plane.jpg" alt="plane"/>
+            <p>Blah blah plane. Blah blah moon. Blah blah politicians. Blah Blah no idea.
+                Blah blah enough to wrap.</p>
+        </section>
+
+        <section class="right">
+            <h2 class="header">Watch/Listen</h2>
+        </section>
+    </div>
+</body>
+</html>
