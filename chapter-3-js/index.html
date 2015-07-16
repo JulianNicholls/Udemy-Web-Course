@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Javascript</title>
+</head>
+<style type="text/css">
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+div {
+    margin: 20px;
+}
+
+
+</style>
+<body>
+
+    <p>What's the Weather like?</p>
+    <input type="text" id="weather" />
+    <button id="go">OK</button>
+
+    <script type="text/javascript">
+        document.getElementById('go').onclick = function() {
+            var weather = document.getElementById('weather').value;
+
+            if(weather.match(/rain/i)) {
+                alert("It's raining");
+            }
+            else {
+                alert("It's not raining");
+            }
+        }
+    </script>
+</body>
+</html>
+
+<script type="text/javascript">
+// var ptag = document.getElementById('text'),
+//     text = ptag.innerHTML;
+
+// alert(text);
+
+// ptag.innerHTML = "Different Text";
+
+
+// document.getElementById('changer').onclick = function() {
+//     var ptag = document.getElementById('first').innerHTML = "New contents"
+// };
+
+
+// document.getElementById('changer').onclick = function() {
+//     var newtext = document.getElementById('newtext').value,
+//         divtag  = document.getElementById('text');
+
+//     divtag.innerHTML = newtext;
+
+
+// var array = [];
+
+// array[0] = "Pizza";
+// array[1] = "Chocolate";
+
+// var array2 = ["Rain", "Sunshine"];
+
+// array2.push("Snow");        // Append
+
+// var spliced = array2.splice(-1, 1)  // Remove and assign
+
+// array2.splice(1, 0, "Hail", "Cloudy");        // Splice in Hail before Sunshine(1)
+
+// document.getElementById('changer').onclick = function() {
+//     var divtag  = document.getElementById('text');
+
+//     divtag.innerHTML = array[0];
+
+//     console.log(array)
+//     console.log(array2)
+//     console.log(spliced)
+// };
+
+// };
+
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Javascript Game</title>
+</head>
+<style type="text/css">
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+button {
+    font-size: 24px;
+}
+
+button:hover {
+    color: blue;
+}
+
+#answer {
+    margin: 20px;
+    font-size: 36px;
+}
+</style>
+<body>
+    <p>How many of my 11 fingers am I holding up?</p>
+
+    <button class="guess">0</button>
+    <button class="guess">1</button>
+    <button class="guess">2</button>
+    <button class="guess">3</button>
+    <button class="guess">4</button>
+    <button class="guess">5</button>
+    <button class="guess">6</button>
+    <button class="guess">7</button>
+    <button class="guess">8</button>
+    <button class="guess">9</button>
+    <button class="guess">10</button>
+    <button class="guess">11</button>
+
+    <div id="answer"></div>
+
+    <script type="text/javascript">
+        var guesses = document.getElementsByClassName('guess');
+
+        function makeGuess() {
+            var guess   = parseInt(this.innerHTML, 10),
+                heldup  = Math.floor(Math.random() * 12),
+                atag    = document.getElementById('answer');
+
+            if(guess == heldup) {
+                atag.innerHTML = 'Well Done!';
+                atag.style.color = "green";
+            }
+            else {
+                atag.innerHTML = 'No, sorry, it was ' + heldup;
+                atag.style.color = "red";
+            }
+        }
+
+        for(btn = 0; btn < guesses.length; ++btn) {
+            guesses[btn].onclick = makeGuess
+        }
+    </script>
+</body>
+</html>

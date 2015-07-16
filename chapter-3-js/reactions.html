@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Javascript Reactions</title>
+</head>
+<style type="text/css">
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+div#box {
+    height: 150px;
+    width: 150px;
+    background-color: red;
+    border-radius: 10px;
+    display: none;
+    position: relative;
+}
+
+div#time {
+    font-size: 36px;
+}
+
+.center {
+    text-align: center;
+}
+
+</style>
+<body>
+    <h1 class="center">Reaction Tester</h1>
+    <p>Click on the squares and circles that appear, as fast as you can.</p>
+    <div id="time">
+        <table>
+            <tr><td>Last Time:&nbsp;</td><td id="result"></td></tr>
+            <tr><td>Average:</td><td id="average"></td></tr>
+        </table>
+    </div>
+
+    <div id="box"></div>
+
+    <script type="text/javascript" src="reactions.js"></script>
+</body>
+</html>
