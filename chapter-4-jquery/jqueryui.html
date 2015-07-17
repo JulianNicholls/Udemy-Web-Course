@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI</title>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+</head>
+<style type="text/css">
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #008;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  font-size: 18pt;
+  line-height: 100px;
+  text-align: center;
+  color: #ffd;
+}
+
+#resizable {
+  background-color: blue;
+}
+
+#target {
+  width: 500px;
+  height: 250px;
+  background-color: #ffc;
+}
+
+</style>
+<body>
+  <h1>jQuery UI</h1>
+
+  <div class="square" id="draggable">Drag me around</div>
+  <div class="square" id="resizable">Resize me</div>
+
+  <div id="target"></div>
+
+  <script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="./jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    $('#draggable').draggable();
+    $('#resizable').resizable();
+
+    $('#target').droppable({ drop: function(ui, event) {
+      $('#target').css('background-color', 'yellow');
+    }});
+  </script>
+</body>
+</html>

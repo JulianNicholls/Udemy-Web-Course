@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajax</title>
+</head>
+<style type="text/css">
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    margin: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #008;
+}
+
+</style>
+<body>
+    <h1>Ajax</h1>
+
+    <p id="replace">First Paragraph</p>
+
+    <script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $.ajax({ 'url': 'test.html' }).done(function(data) {
+            $('body').append(data);
+        });
+    });
+    </script>
+</body>
+</html>

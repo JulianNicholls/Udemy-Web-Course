@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI 2</title>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui.theme.min.css">
+</head>
+<style type="text/css">
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #008;
+}
+
+ul {
+  list-style: none;
+  width: 300px;
+}
+
+ul li {
+  background: #eee;
+  border: 1px solid #ccc;
+  color: black;
+}
+
+</style>
+<body>
+  <h1>jQuery UI 2</h1>
+
+  <div id="accordion">
+    <h3>Title</h3>
+    <div>
+      <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </p>
+    </div>
+
+    <h3>Title</h3>
+    <div>
+      <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </p>
+    </div>
+
+    <h3>Title</h3>
+    <div>
+      <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </p>
+    </div>
+
+    <h3>Title</h3>
+    <div>
+      <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </p>
+    </div>
+
+    <h3>Title</h3>
+    <div>
+      <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </p>
+    </div>
+
+    <h3>Title</h3>
+    <div>
+      <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </p>
+    </div>
+  </div>
+
+  <ul>
+    <li>Delivery Time</li>
+    <li>Price</li>
+    <li>Ease of Use</li>
+    <li>Speed of Customisation</li>
+  </ul>
+
+  <script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="./jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    $('#accordion').accordion();
+    $('ul').sortable();
+  </script>
+</body>
+</html>

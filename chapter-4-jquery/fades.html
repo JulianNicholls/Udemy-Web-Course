@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fades</title>
+</head>
+<style type="text/css">
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    margin: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #008;
+}
+
+button {
+    font-size: 18px;
+}
+
+.larger {
+    background-color: blue;
+    color: white;
+}
+
+</style>
+<body>
+    <p>This is some text that will be controlled when the buttons below are pressed.</p>
+
+    <button class="larger" id="remove">Remove</button>
+    <button id="restore">Restore</button>
+
+
+    <script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#remove').click(function() {
+            $('p').fadeOut(700, function() {
+                $('#remove').removeClass('larger');
+                $('#restore').addClass('larger');
+            });
+        });
+
+        $('#restore').click(function() {
+            $('p').slideDown(500, function() {
+                $('#restore').removeClass('larger');
+                $('#remove').addClass('larger');
+            })
+        });
+    });
+    </script>
+</body>
+</html>
