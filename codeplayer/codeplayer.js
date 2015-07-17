@@ -33,7 +33,7 @@ function visibleColumns() {
         count = 0;
 
     columns.each( function() {
-        if($(this).css('display') != 'none') {
+        if($(this).hasClass('enabled')) {
             ++count;
         }
     });

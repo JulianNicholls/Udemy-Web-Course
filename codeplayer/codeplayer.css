@@ -14,7 +14,7 @@ h2 {
 
 header {
     height: 30px;
-    background: #eaeaea;
+    background: #eee;
     padding: 5px;
     border-bottom: 1px solid #777;
 }
@@ -25,7 +25,7 @@ header {
 
 .column {
     border-left: 1px solid #777;
-    padding: 3px;
+    padding: 4px;
     float: left;
     min-height: 600px;
     display: none;
@@ -41,11 +41,11 @@ header {
 
 .button-panel {
     font-size: 13px;
-    border: 1px solid #777;
-    border-radius: 5px;
+    border: 1px solid #333;
+    border-radius: 4px;
     float: left;
-    margin: 4px 0 0 30%;
-    padding: 0;
+    margin: 2px 0 0 30%;
+    padding: 1px;
 }
 
 .toggle {
@@ -53,9 +53,9 @@ header {
     text-align: center;
     background-color: #bbb;
     color: black;
-    width: 4em;
+    width: 4.5em;
     border-left: 1px solid #ccc;
-    padding: 3px 0 3px 0;
+    padding: 5px 0 5px 0;
 }
 
 .enabled {
@@ -65,11 +65,12 @@ header {
 
 #run {
     font-size: 13px;
+    background-color: #afa;
     border: 1px solid #777;
     border-radius: 5px;
     float: right;
     margin-top: 4px;
-    padding: 3px;
+    padding: 4px;
 }
 
 .toggle:first-of-type {
