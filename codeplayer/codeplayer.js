@@ -6,8 +6,6 @@ $(function() {
             column  = '#' + $this.text().toLowerCase(),
             $column = $(column);
 
-        console.log(column);
-
         $this.toggleClass('enabled');
         $column.toggleClass('enabled');
 
@@ -16,23 +14,19 @@ $(function() {
 });
 
 function resizeColumns() {
-    var columns = $('.column'),
-        count = visibleColumns(),
+    var count = visibleColumns(),
         width = Math.floor(100 / count) - 1;
 
-    columns.each(function() {
-        if($(this).hasClass('enabled')) {
-            $(this).css('width', width + '%')
-        }
+    $('.column').each(function() {
+        $(this).css('width', width + '%')
     })
 
 }
 
 function visibleColumns() {
-    var columns = $('.column'),
-        count = 0;
+    var count = 0;
 
-    columns.each( function() {
+    $('.column').each( function() {
         if($(this).hasClass('enabled')) {
             ++count;
         }
