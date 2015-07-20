@@ -13,7 +13,9 @@ $(function() {
 
     $('#run').click( function() {
         $('iframe').contents().find("html").html(
-            '<style>' + $('#cssText').val() + '</style>' + $('#htmlText').val()
+            '<style>' + $('#cssText').val() + '</style>' +
+            $('#htmlText').val()
+//            '<script>' + $('#jsText').val() + '</script>'
         );
 
         document.getElementById('result-frame').contentWindow.eval($('#jsText').val());
