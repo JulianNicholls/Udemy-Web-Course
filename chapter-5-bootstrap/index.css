@@ -1,4 +1,32 @@
 .box {
     background-color: #d3d3d3;
-    border: 1px solid grey;
+    border: 1px solid gray;
 }
+
+h1 {
+    text-align: center;
+}
+
+form, table {
+    margin-top: 50px;
+}
+
+.large {
+    font-size: 400%;
+}
+
+#div1 {
+    height: 800px;
+    background-color: blue
+}
+
+#div2 {
+    height: 800px;
+    background-color: red;
+}
+
+#div3 {
+    height: 800px;
+    background-color: green;
+}
+
