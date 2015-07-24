@@ -43,6 +43,18 @@ body {
 
     unset($array[1]);
     print_r($array);
+
+    echo '<br />';
+
+    foreach($array as $item) {
+        echo $item . '<br />';
+    }
+
+    echo '<br />';
+
+    foreach($array2 as $key => $value) {
+        echo "$key: $value<br />";
+    }
 ?>
     </pre>
 </body>
