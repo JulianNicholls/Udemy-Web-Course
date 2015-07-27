@@ -1,0 +1,12 @@
+body {
+    background: url('mountains-1400.jpg') top center no-repeat;
+    background-size: cover;
+}
+
+.page-header small {
+    color: #ccc;
+}
+
+div#weather, div#fail {
+    display: none;
+}
