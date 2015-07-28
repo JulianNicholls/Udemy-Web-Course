@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     require_once 'comsubs.php';
 
     db_connect();
@@ -36,12 +37,6 @@
         <a href="#" class="navbar-brand">Secret Diary</a>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#top-container">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Download</a></li>
-        </ul>
-
         <form method="post" class="navbar-form navbar-right">
           <div class="form-group">
             <input type="email" name="logemail" placeholder="Email Address" class="form-control"
