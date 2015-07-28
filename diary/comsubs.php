@@ -1,4 +1,15 @@
 <?php
+function db_connect()
+{
+    global $conn;
+
+    $conn = new mysqli('localhost', 'cl50-julian', 'julian', 'cl50-julian');
+
+    if($conn->connect_error) {
+        die("503 Error - Cannot connect to database.");
+    }
+}
+
 function raise_alert($type, $header, $message)
 { ?>
     <div class="alert alert-<?php echo $type; ?> alert-dismissable" role="alert">
