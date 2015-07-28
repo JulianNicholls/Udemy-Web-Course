@@ -20,11 +20,10 @@
       <div class="col-sm-8 col-sm-offset-2 well">
         <p class="lead">This will predict the weather for the chosen place by querying a
         weather forecasting site.</p>
-        <p class="text-center">Enter the location below to get a weather forecast,
-        e.g. London, Beijing.</p></p>
+        <p class="text-center">Enter the location below to get a weather forecast.</p>
         <form action="weather.php" method="get" accept-charset="utf-8">
           <div class="form-group">
-            <input type="text" name="location" id="location" class="form-control" placeholder="Place" />
+            <input type="text" name="location" id="location" class="form-control" placeholder="Place e.g. London, Beijing" />
           </div>
 
           <div class="form-group">
