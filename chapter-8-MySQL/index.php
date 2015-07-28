@@ -5,7 +5,7 @@
         die("503 Error - Cannot connect to database.");
     }
 
-    $query = "SELECT name, email FROM `users`";
+    $query = "SELECT `name`, `email` FROM `users`";
 
     if(($result = $conn->query($query)) == FALSE) {
         die("503 Error - Could not access the users table");
@@ -36,11 +36,14 @@
                     while($row = $result->fetch_assoc()) {
                         echo "<tr><td>{$row['name']}</td><td>{$row['email']}</td></tr>\n";
                     }
+
+                    $result->free();
                 ?>
             </table>
         </div>
     </div>
   </div>
+
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
