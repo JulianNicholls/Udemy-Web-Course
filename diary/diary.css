@@ -22,7 +22,7 @@ h1 small {
 
 textarea#entry {
     font-family: Georgia, Times, 'Times New Roman', serif;
-    font-size: 18px;
+    font-size: 20px;
     background: url('paper.jpg') top center;
     background-size: cover;
 }

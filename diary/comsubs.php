@@ -10,6 +10,22 @@ function db_connect()
     }
 }
 
+function db_load_diary()
+{
+    global $conn;
+
+    $query = "SELECT `diary` FROM `users` WHERE id=" . $_SESSION['id'];
+
+    if(($result = $conn->query($query)) !== FALSE) {
+        $row = $result->fetch_assoc();
+    }
+    else {
+        return '';
+    }
+
+    return $row['diary'];
+}
+
 function raise_alert($type, $header, $message)
 { ?>
     <div class="alert alert-<?php echo $type; ?> alert-dismissable" role="alert">

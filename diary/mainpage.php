@@ -6,6 +6,8 @@
 
     $error_str   = '';
     $success_str = '';
+
+    $diary = db_load_diary();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +50,9 @@
 
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <textarea name="entry" id="entry" class="form-control"></textarea>
+        <textarea name="entry" id="entry" class="form-control">
+<?php echo $diary; ?>
+        </textarea>
       </div>
     </div>
   </div>
@@ -57,9 +61,35 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script>
 $(function() {
+    var $textarea = $('textarea'),
+        last_save_size = $textarea.val().length;
+
     $('.top-container').css('height', $(window).height());
 
-    $("textarea").css('height', $(window).height() - 190);
+    $textarea.css('height', $(window).height() - 190);
+
+    $textarea.keyup(function(event) {
+      var content = this.value,
+          length = content.length;
+
+      // Update the diary entry in the database every 10 characters,
+      // or when the user hits the return key.
+
+      if(Math.abs(last_save_size - length) >= 10 || event.keyCode == 13) {
+          last_save_size = length;
+
+          $.ajax({
+            type: 'POST',
+            url: 'update_diary.php',
+            data: { 'entry': content },
+            success: function(data) {
+                if(data == 'FAIL') {
+                    alert('Cannot save your diary entries.')
+                }
+            }
+          });
+      }
+    })
 });
   </script>
 </body>
