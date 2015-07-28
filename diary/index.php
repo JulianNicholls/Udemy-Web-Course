@@ -1,7 +1,6 @@
 <?php
     session_start();
     require_once 'comsubs.php';
-
     $conn = new mysqli('localhost', 'cl50-julian', 'julian', 'cl50-julian');
 
     if($conn->connect_error) {
@@ -11,69 +10,8 @@
     $error_str   = '';
     $success_str = '';
 
-    if(isset($_POST['signup'])) {
-        if($_POST['email'] == '' ||
-           !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-          $error_str  = "You must enter a valid email address.<br/>";
-          $error_head = "Signup Error<br />";
-        }
-
-        if(strlen($_POST['password']) < 6 ||
-           !preg_match('/[A-Z]/', $_POST['password'])) {
-            $error_str .= 'The password must be at least 6 characters and contain at least one capital letter.';
-          $error_head = "Signup Error<br />";
-        }
-
-        if($error_str == '') {
-            $query = "SELECT COUNT(*) FROM `users` WHERE `email`='" . $conn->real_escape_string($_POST['email']) . "'";
-
-            $result = $conn->query($query);
-            $row = $result->fetch_array();
-            if($row[0] != '0') {
-                $error_str = "That email address is already registered. Do you want to log in?";
-                $error_head = "Signup Error<br />";
-            }
-            else {
-                $query = "INSERT INTO `users` (`email`, `password`) VALUES ('" .
-                    $conn->real_escape_string($_POST['email']) .
-                    "', '" .
-                    md5(md5($_POST['email']) . $_POST['password']) .
-                    "')";
-
-                if($conn->query($query) !== FALSE) {
-                    $success_str = "You have signed up successfully.";
-                    $success_head = 'Signup Complete';
-                    $_SESSION['id'] = $conn->insert_id;
-
-                    // Redirect to main page
-                }
-                else {
-                  $error_str = "We had a problem with registering you. Please try again later.";
-                  $error_head = "Signup Error<br />";
-                }
-            }
-        }
-    }
-
-    if(isset($_POST['login'])) {
-        $email = $conn->real_escape_string($_POST['logemail']);
-        $hash  = md5(md5($_POST['logemail']) . $_POST['logpassword']);
-        $query = "SELECT * FROM `users` WHERE `email`='$email' AND `password`='$hash'";
-
-        $result = $conn->query($query);
-
-        if($result->num_rows == 1) {
-          $row = $result->fetch_assoc();
-          $_SESSION['id'] = $row['id'];
-          $success_head = "";
-          $name = explode(' ', $row['name'])[0];
-          $success_str = "Hello $name.";
-        }
-        else {
-          $error_str = "Your username or password was not recognised.";
-          $error_head = "Login Error.";
-        }
-    }
+    require_once 'signup.php';
+    require_once 'login.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,8 +40,16 @@
     } ?>
 
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3 well">
-        <h3 class="text-center">Sign up</h2>
+      <div class="col-sm-6 col-sm-offset-3">
+        <ul id="tabs" class="nav nav-tabs nav-justified" data-tabs="tabs">
+          <li class="active"><a href="#signupdiv" data-toggle="tab">Sign up</a></li>
+          <li><a href="#logindiv" data-toggle="tab">Log in</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row tab-content">
+      <div class="col-sm-6 col-sm-offset-3 well tab-pane active" id="signupdiv">
         <form action="index.php" method="post" accept-charset="utf-8" class="form-horizontal">
           <div class="form-group">
             <label for="email" class="col-sm-2 control-label">Email</label>
@@ -128,11 +74,8 @@
           </div>
         </form>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3 well">
-        <h3 class="text-center">Log in</h2>
+      <div class="col-sm-6 col-sm-offset-3 well tab-pane" id="logindiv">
         <form action="index.php" method="post" accept-charset="utf-8" class="form-horizontal">
           <div class="form-group">
             <label for="logemail" class="col-sm-2 control-label">Email</label>
