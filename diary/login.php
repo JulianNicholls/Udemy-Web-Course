@@ -7,16 +7,16 @@ if(isset($_POST['login'])) {
     $result = $conn->query($query);
 
     if($result->num_rows == 1) {
-      $row = $result->fetch_assoc();
-      $_SESSION['id'] = $row['id'];
-      $success_head = "";
-      $name = explode(' ', $row['name'])[0];
-      $success_str = "Hello $name.";
+        $row = $result->fetch_assoc();
+        $_SESSION['id'] = $row['id'];
+        $success_head = "";
+        $name = explode(' ', $row['name'])[0];
+        $success_str = "Hello $name.";
 
-      // Redirect to main page
+        // Redirect to main page
     }
     else {
-      $error_str = "Your username or password was not recognised.";
-      $error_head = "Login Error.";
+        $error_str = "Your username or password was not recognised.";
+        $error_head = "Login Error.";
     }
 }
