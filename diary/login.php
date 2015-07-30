@@ -13,7 +13,7 @@ if(isset($_POST['login'])) {
         $name = explode(' ', $row['name'])[0];
         $success_str = "Hello $name.";
 
-        // Redirect to main page
+        header('Location: mainpage.php');
     }
     else {
         $error_str = "Your username or password was not recognised.";

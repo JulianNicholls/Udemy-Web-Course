@@ -33,7 +33,7 @@ if(isset($_POST['signup'])) {
                 $success_head = 'Signup Complete';
                 $_SESSION['id'] = $conn->insert_id;
 
-                // Redirect to main page
+                header('Location: mainpage.php');
             }
             else {
                 $error_str = "We had a problem with registering you. Please try again later.";
