@@ -1,5 +1,10 @@
 <?php
     session_start();
+
+    if(!isset($_SESSION['id'])) {
+        header('Location: index.php');
+    }
+
     require_once 'comsubs.php';
 
     db_connect();
@@ -29,7 +34,7 @@
       </div>
       <div class="pull-right">
         <ul class="nav navbar-nav">
-          <li><a href="#">Log out</a></li>
+          <li><a href="index.php?logout=1">Log out</a></li>
         </ul>
       </div>
     </div>
@@ -89,7 +94,7 @@ $(function() {
             }
           });
       }
-    })
+    });
 });
   </script>
 </body>

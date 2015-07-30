@@ -8,6 +8,11 @@
     $error_str   = '';
     $success_str = '';
 
+    if(isset($_GET['logout'])) {
+        unset($_SESSION['id']);
+        $success_str = 'You have been logged out successfully.';
+    }
+
     require_once 'signup.php';
     require_once 'login.php';
 ?>
