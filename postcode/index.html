@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+
+<style>
+body {
+  background: url('background.png') top center no-repeat;
+  background-size: cover;
+}
+
+.contained {
+  margin-top: 70px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+#find {
+  display: block;
+  margin: 20px auto;
+}
+
+div#postcode {
+  width: 400px;
+  min-height: 100px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 5em;
+  text-align: center;
+  background: #eee;
+  color: #008;
+}
+
+</style>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 contained">
+        <h1 class="text-center">Find the Postcode</h1>
+        <p class="lead text-center">Enter the address that you want the postcode for</p>
+        <form>
+            <input type="text" class="form-control" id="line1" name="line1">
+            <button id="find" class="btn btn-primary btn-lg">Find the Postcode</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="postcode">
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script>
+$(function() {
+    $('#find').click(function(event) {
+          event.preventDefault();
+
+          var address = $('#line1').val();
+
+          $.ajax({
+              type: 'GET',
+              url: 'https://maps.googleapis.com/maps/api/geocode/xml?address=' +
+                encodeURIComponent(address) + '&key=AIzaSyCClLZkJiG37-tfCaNZB37eJcjSTLIwFjw',
+              dataType: 'xml',
+              success: processXML
+          });
+
+          return false;
+    });
+});
+
+function processXML(data) {
+    var address = $(data).find('address_component'),
+        $postcode = $('#postcode');
+
+    $postcode.text('');
+
+    address.each(function() {
+        var $this = $(this),
+            type = $this.find("type").text(),
+            name = $this.find("long_name").text();
+
+        console.log(type + ': ' + name );
+
+        if(type == 'postal_code')
+            $postcode.text(name);
+    });
+
+    if($postcode.text() == '') {
+      $postcode.html("<small>No postcode found</small>")
+    }
+    else {
+      console.log("pct = '" + $postcode.text() + "'")
+    }
+}
+  </script>
+</body>
+</html>

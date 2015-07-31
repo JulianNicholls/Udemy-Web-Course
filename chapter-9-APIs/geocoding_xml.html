@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Geocoding API (XML)</title>
+</head>
+<body>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+    $(function() {
+        $.ajax({
+            type: 'GET',
+            url: "https://maps.googleapis.com/maps/api/geocode/xml?address=58+Southbourne+Road,+Bournemouth,+Dorset.+UK&key=AIzaSyCClLZkJiG37-tfCaNZB37eJcjSTLIwFjw",
+            dataType: 'xml',
+            success: processXML
+        });
+    });
+
+    function processXML(data) {
+        var $xml    = $(data),
+            address = $xml.find("address_component");
+
+        address.each(function() {
+            var $this = $(this),
+                type = $this.find("type").text(),
+                name = $this.find("long_name").text();
+
+            console.log(type + ': ' + name);
+
+            if(type == "postal_code")
+                alert(name);
+        });
+    }
+    </script>
+</body>
+</html>
+
+<!--    https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCClLZkJiG37-tfCaNZB37eJcjSTLIwFjw
+-->
