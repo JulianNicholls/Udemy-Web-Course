@@ -1,7 +1,8 @@
 <?php
     session_start();
 
-    include 'twitteroauth/autoload.php';
+    require_once 'twitteroauth/autoload.php';
+    require_once 'humantime.php';
 
     use Abraham\TwitterOAuth\TwitterOAuth;
 
@@ -17,6 +18,11 @@
         'statuses/home_timeline',
         array('count' => '200')
     );
+
+function make_links($text)
+{
+    return preg_replace('/(https?:\/\/)(\S+)/', '<a href="$1$2" target="_blank">$2</a>', $text);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,23 +36,54 @@
 </head>
 
 <style>
+.tweet-text h5 {
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.tweet {
+  padding: 3px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
 </style>
 <body>
   <div class="container">
     <div class="page-header">
-      <h1>Twitter API</h1>
+      <h1>Twitter API <small>Filtered by Favouritism</small></h1>
     </div>
 
-    <div class="row">
-      <div class="col-sm-8">
-        <h2>Tweets</h2>
-        <?php foreach($tweets as $tweet) :
-          echo "<p>{$tweet->text} - Favourited {$tweet->favorite_count} times.</p>";
-        endforeach; ?>
+    <?php foreach($tweets as $tweet) :
+        if($tweet->favorite_count == 0)
+          continue;
+
+        $user   = $tweet->user;
+        $sname  = $user->screen_name;
+        $url    = "https://twitter.com/$sname" ?>
+
+    <div class="row tweet">
+      <div class="col-sm-1 avatar">
+        <a href="<?php echo $url; ?>" target="_blank">
+          <img src="<?php echo $user->profile_image_url; ?>" alt="Avatar" />
+        </a>
+      </div>
+      <div class="col-sm-9 tweet-text">
+          <h5><?php echo $user->name; ?>
+            <small>
+              <a href="<?php echo $url; ?>" target="_blank">
+                <?php echo '@' . $sname; ?>
+              </a>
+            </small>
+          </h5>
+          <?php echo make_links($tweet->text); ?>
+      </div>
+      <div class="col-sm-2 tweet-time">
+        <?php echo human_time($tweet->created_at); ?>
       </div>
     </div>
+    <?php endforeach; ?>
 
-    <?php echo '<pre>' . print_r($tweets, true) . '</pre>'; ?>
+    <?php // echo '<pre>' . print_r($tweets, true) . '</pre>'; ?>
   </div>
 
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
